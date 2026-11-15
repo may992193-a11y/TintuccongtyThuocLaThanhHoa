@@ -1,0 +1,620 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thuốc Lá Thanh Hóa – Tin tức &amp; Sự kiện</title>
+<meta name="description" content="Cổng thông tin Công ty TNHH MTV Thuốc Lá Thanh Hóa – Đậm chất tinh hoa, Hương danh lan tỏa.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0b2e52; --navy-2:#123f6e; --blue:#1f6fb5; --sky:#e8f2fb;
+    --gold:#c9a24a; --gold-2:#e6c77a; --cream:#fbf8f1;
+    --ink:#16202b; --muted:#5f6b78; --line:#e3e8ee; --bg:#f6f8fb; --card:#fff;
+    --r:14px; --sh:0 10px 30px rgba(11,46,82,.08); --sh2:0 18px 40px rgba(11,46,82,.16);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;scroll-padding-top:84px}
+  body{margin:0;font-family:"Be Vietnam Pro",system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  button{font-family:inherit}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 16px}
+  .serif{font-family:"Playfair Display",serif}
+
+  /* ===== Top bar & header ===== */
+  .topbar{background:var(--navy);color:#cfdcea;font-size:13px}
+  .topbar .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:8px 16px;flex-wrap:wrap}
+  .topbar .r{display:flex;gap:20px}
+  .topbar a:hover{color:var(--gold-2)}
+  header{position:sticky;top:0;z-index:80;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:72px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand img{height:50px;width:auto;border-radius:6px}
+  .brand b{display:block;font-size:15px;color:var(--navy);letter-spacing:.02em;text-transform:uppercase;line-height:1.2}
+  .brand span{font-size:12px;color:var(--gold);font-weight:600;font-style:italic}
+  nav ul{list-style:none;display:flex;gap:4px;margin:0;padding:0}
+  nav a{display:block;padding:10px 14px;border-radius:999px;font-weight:600;font-size:14px;color:#33404d;transition:.2s}
+  nav a:hover,nav a.on{background:var(--sky);color:var(--blue)}
+  .burger{display:none;border:1px solid var(--line);background:#fff;border-radius:10px;width:44px;height:44px;font-size:20px;cursor:pointer}
+
+  /* ===== Ticker ===== */
+  .ticker{background:linear-gradient(90deg,var(--gold),var(--gold-2));color:var(--navy);font-size:14px;font-weight:600;overflow:hidden}
+  .ticker .wrap{display:flex;align-items:center;gap:14px;height:42px}
+  .ticker .lbl{flex:none;background:var(--navy);color:#fff;padding:4px 12px;border-radius:999px;font-size:12px;letter-spacing:.05em}
+  .ticker .track{overflow:hidden;flex:1;mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent)}
+  .ticker .move{display:inline-flex;gap:48px;white-space:nowrap;animation:tick 45s linear infinite}
+  .ticker .move:hover{animation-play-state:paused}
+  .ticker a:hover{text-decoration:underline}
+  @keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* ===== Hero ===== */
+  .hero{padding:28px 0 10px}
+  .hero .wrap{display:grid;grid-template-columns:1.7fr 1fr;gap:22px}
+  .lead{position:relative;border-radius:var(--r);overflow:hidden;min-height:460px;box-shadow:var(--sh2);cursor:pointer;background:var(--navy)}
+  .lead img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s}
+  .lead:hover img{transform:scale(1.05)}
+  .lead::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,46,82,0) 30%,rgba(11,46,82,.92))}
+  .lead .txt{position:absolute;left:0;right:0;bottom:0;padding:30px;color:#fff;z-index:2}
+  .lead h1{font-family:"Playfair Display",serif;font-size:clamp(22px,2.6vw,32px);line-height:1.3;margin:12px 0 10px}
+  .lead p{margin:0;opacity:.88;max-width:640px}
+  .badge{display:inline-flex;gap:6px;align-items:center;background:var(--gold);color:var(--navy);font-weight:700;font-size:12px;padding:5px 12px;border-radius:999px;letter-spacing:.04em;text-transform:uppercase}
+  .side{display:flex;flex-direction:column;gap:14px}
+  .mini{display:grid;grid-template-columns:120px 1fr;gap:14px;background:#fff;border-radius:var(--r);padding:12px;box-shadow:var(--sh);cursor:pointer;transition:.25s;flex:1;align-items:center}
+  .mini:hover{transform:translateX(4px);box-shadow:var(--sh2)}
+  .mini .ph{height:92px;border-radius:10px;overflow:hidden}
+  .mini h3{font-size:14.5px;line-height:1.4;margin:0 0 6px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+  .date{font-size:12.5px;color:var(--muted)}
+  .ph{background:linear-gradient(135deg,var(--navy-2),var(--blue));position:relative;overflow:hidden}
+  .ph img{width:100%;height:100%;object-fit:cover}
+  .fb{position:absolute;inset:0;display:grid;place-items:center;color:rgba(255,255,255,.9);font-family:"Playfair Display",serif;font-weight:700;font-size:28px;text-align:center;padding:10px}
+  .fb small{display:block;font-family:"Be Vietnam Pro";font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-2)}
+
+  /* ===== Stats ===== */
+  .stats{margin:30px 0}
+  .stats .wrap>div{background:linear-gradient(120deg,var(--navy),var(--navy-2) 60%,var(--blue));border-radius:var(--r);color:#fff;display:grid;grid-template-columns:repeat(4,1fr);box-shadow:var(--sh2);overflow:hidden;position:relative}
+  .stat{padding:28px 22px;text-align:center;border-right:1px solid rgba(255,255,255,.12)}
+  .stat:last-child{border:0}
+  .stat b{display:block;font-family:"Playfair Display",serif;font-size:40px;color:var(--gold-2);line-height:1.1}
+  .stat span{font-size:14px;opacity:.85}
+
+  /* ===== Sections ===== */
+  section.block{padding:46px 0}
+  .head{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin-bottom:24px}
+  .head .k{color:var(--gold);font-weight:700;font-size:13px;letter-spacing:.12em;text-transform:uppercase}
+  .head h2{font-family:"Playfair Display",serif;font-size:clamp(26px,3vw,36px);margin:4px 0 0;color:var(--navy)}
+  .tools{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+  .tab{border:1px solid var(--line);background:#fff;padding:8px 16px;border-radius:999px;font-weight:600;font-size:13.5px;cursor:pointer;color:#33404d;transition:.2s}
+  .tab:hover{border-color:var(--blue);color:var(--blue)}
+  .tab[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
+  .search{display:flex;align-items:center;background:#fff;border:1px solid var(--line);border-radius:999px;padding:0 6px 0 14px}
+  .search input{border:0;outline:0;font:inherit;font-size:14px;padding:9px 4px;width:200px;background:transparent}
+  .search span{color:var(--muted)}
+
+  .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+  .card{background:#fff;border-radius:var(--r);overflow:hidden;box-shadow:var(--sh);display:flex;flex-direction:column;cursor:pointer;transition:.3s}
+  .card:hover{transform:translateY(-6px);box-shadow:var(--sh2)}
+  .card .ph{height:210px}
+  .card .ph img{transition:transform .8s}
+  .card:hover .ph img{transform:scale(1.07)}
+  .card .cat{position:absolute;left:14px;top:14px;z-index:2;background:rgba(255,255,255,.94);color:var(--navy);font-size:11.5px;font-weight:700;padding:4px 10px;border-radius:999px;letter-spacing:.04em;text-transform:uppercase}
+  .card .cnt{position:absolute;right:14px;bottom:12px;z-index:2;background:rgba(11,46,82,.75);color:#fff;font-size:12px;padding:3px 9px;border-radius:999px}
+  .card .bd{padding:18px 20px 20px;display:flex;flex-direction:column;flex:1}
+  .card h3{font-size:16.5px;line-height:1.45;margin:6px 0 8px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+  .card p{font-size:14px;color:var(--muted);margin:0 0 14px;flex:1;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+  .rm{font-weight:700;font-size:14px;color:var(--blue)}
+  .empty{grid-column:1/-1;padding:50px;text-align:center;background:#fff;border-radius:var(--r);color:var(--muted)}
+
+  /* ===== Gallery ===== */
+  .gallery-bg{background:var(--navy);color:#fff}
+  .gallery-bg .head h2{color:#fff}
+  .mosaic{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:180px;gap:12px}
+  .mosaic button{border:0;padding:0;border-radius:12px;overflow:hidden;cursor:zoom-in;background:var(--navy-2)}
+  .mosaic button:nth-child(1){grid-column:span 2;grid-row:span 2}
+  .mosaic button:nth-child(6){grid-column:span 2}
+  .mosaic img{width:100%;height:100%;object-fit:cover;transition:transform .6s,opacity .3s;opacity:.92}
+  .mosaic button:hover img{transform:scale(1.08);opacity:1}
+
+  /* ===== Notice + Law ===== */
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+  .panel{background:#fff;border-radius:var(--r);box-shadow:var(--sh);padding:8px 24px 16px}
+  .panel h3{display:flex;justify-content:space-between;align-items:center;font-size:18px;color:var(--navy);margin:16px 0 8px;padding-bottom:12px;border-bottom:2px solid var(--sky)}
+  .panel h3 a{font-size:13px;color:var(--blue);font-weight:600}
+  .item{display:grid;grid-template-columns:58px 1fr;gap:14px;padding:14px 0;border-bottom:1px dashed var(--line)}
+  .item:last-child{border:0}
+  .cal{background:var(--sky);color:var(--navy);border-radius:10px;text-align:center;padding:6px 0;line-height:1.1;height:fit-content}
+  .cal b{display:block;font-size:20px}
+  .cal small{font-size:11px;font-weight:600}
+  .item h4{margin:0 0 4px;font-size:14.5px;line-height:1.45}
+  .item h4 a:hover{color:var(--blue)}
+  .item p{margin:0;font-size:13px;color:var(--muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .pill{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:6px;margin-right:6px;vertical-align:middle}
+  .p-hire{background:#e7f6ec;color:#17803d}.p-bid{background:#fff4dc;color:#a06800}.p-other{background:#eef0f3;color:#4b5563}
+
+  /* ===== History ===== */
+  .about{display:grid;grid-template-columns:1fr 1.25fr;gap:40px;align-items:start}
+  .about .intro{position:sticky;top:100px}
+  .about .intro p{color:var(--muted)}
+  .slogan{font-family:"Playfair Display",serif;font-size:26px;color:var(--navy);border-left:4px solid var(--gold);padding-left:16px;margin:20px 0;line-height:1.35}
+  .facts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
+  .facts div{background:#fff;border-radius:12px;padding:14px 16px;box-shadow:var(--sh);font-size:13.5px}
+  .facts b{display:block;color:var(--navy);font-size:15px}
+  .tl{position:relative;padding-left:34px}
+  .tl::before{content:"";position:absolute;left:11px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--gold),var(--blue))}
+  .tl li{list-style:none;position:relative;margin-bottom:18px;background:#fff;border-radius:12px;padding:14px 18px;box-shadow:var(--sh)}
+  .tl li::before{content:"";position:absolute;left:-29px;top:20px;width:14px;height:14px;border-radius:50%;background:#fff;border:3px solid var(--gold)}
+  .tl b{color:var(--blue);font-size:14px}
+  .tl p{margin:4px 0 0;font-size:14.5px}
+  .tl ul{margin:0;padding:0}
+
+  /* ===== Products ===== */
+  .prod-bg{background:var(--cream)}
+  .prods{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+  .prod{background:#fff;border-radius:var(--r);padding:22px 18px;box-shadow:var(--sh);border-top:4px solid var(--gold);transition:.25s;display:flex;flex-direction:column;gap:8px}
+  .prod:hover{transform:translateY(-4px);box-shadow:var(--sh2)}
+  .prod .brandname{font-family:"Playfair Display",serif;font-size:22px;color:var(--navy);font-weight:700}
+  .prod small{color:var(--gold);font-weight:700;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase}
+  .prod p{margin:0;font-size:13.5px;color:var(--muted);flex:1}
+  .prod a{font-size:13px;font-weight:700;color:var(--blue)}
+  .warn{margin-top:18px;font-size:12.5px;color:var(--muted);text-align:center}
+
+  /* ===== Newsletter + footer ===== */
+  .sub{background:linear-gradient(120deg,var(--gold),var(--gold-2))}
+  .sub .wrap{display:grid;grid-template-columns:1fr 1.4fr;gap:28px;align-items:center;padding:36px 16px}
+  .sub h3{margin:0;font-family:"Playfair Display",serif;font-size:26px;color:var(--navy)}
+  .sub p{margin:4px 0 0;color:#4a3b12}
+  .sub form{display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:10px}
+  .sub input{border:0;border-radius:10px;padding:13px 14px;font:inherit;font-size:14px;min-width:0}
+  .sub button{border:0;border-radius:10px;background:var(--navy);color:#fff;font-weight:700;padding:0 22px;cursor:pointer}
+  .sub .ok{grid-column:1/-1;display:none;color:var(--navy);font-weight:600}
+  footer{background:#071d34;color:#a9b8c8;font-size:14px}
+  footer .cols{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:30px;padding:48px 16px 30px}
+  footer h5{color:#fff;font-size:15px;margin:0 0 14px;letter-spacing:.04em;text-transform:uppercase}
+  footer ul{list-style:none;margin:0;padding:0}
+  footer li{margin-bottom:9px}
+  footer a:hover{color:var(--gold-2)}
+  footer .copy{border-top:1px solid #15314f;padding:16px;text-align:center;font-size:13px}
+  .call{position:fixed;right:18px;bottom:18px;z-index:70;background:var(--blue);color:#fff;font-weight:700;padding:13px 20px;border-radius:999px;box-shadow:0 10px 24px rgba(31,111,181,.45);display:flex;gap:8px;align-items:center}
+  .call::before{content:"";position:absolute;inset:0;border-radius:999px;border:2px solid var(--blue);animation:pulse 2s infinite}
+  @keyframes pulse{to{transform:scale(1.25);opacity:0}}
+  .totop{position:fixed;right:18px;bottom:80px;z-index:70;width:44px;height:44px;border-radius:50%;border:0;background:#fff;box-shadow:var(--sh2);cursor:pointer;font-size:18px;opacity:0;pointer-events:none;transition:.3s}
+  .totop.show{opacity:1;pointer-events:auto}
+
+  /* ===== Reader modal + lightbox ===== */
+  .modal{position:fixed;inset:0;z-index:100;background:rgba(5,18,33,.7);backdrop-filter:blur(4px);display:none;align-items:flex-start;justify-content:center;overflow:auto;padding:30px 16px}
+  .modal.open{display:flex}
+  .sheet{background:#fff;border-radius:18px;max-width:860px;width:100%;overflow:hidden;box-shadow:0 30px 60px rgba(0,0,0,.35);animation:up .35s ease}
+  @keyframes up{from{transform:translateY(30px);opacity:0}}
+  .sheet .cover{height:340px}
+  .sheet .in{padding:28px 32px 32px}
+  .sheet h2{font-family:"Playfair Display",serif;color:var(--navy);font-size:clamp(22px,3vw,30px);line-height:1.3;margin:12px 0}
+  .sheet .lede{font-size:16.5px;color:#33404d}
+  .thumbs{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;margin:22px 0}
+  .thumbs button{border:0;padding:0;border-radius:10px;overflow:hidden;height:96px;cursor:zoom-in}
+  .thumbs img{width:100%;height:100%;object-fit:cover}
+  .x{position:sticky;top:0;float:right;margin:14px 14px -58px 0;z-index:3;width:44px;height:44px;border-radius:50%;border:0;background:#fff;font-size:20px;cursor:pointer;box-shadow:var(--sh)}
+  .btn{display:inline-flex;gap:8px;align-items:center;background:var(--navy);color:#fff;font-weight:700;padding:12px 20px;border-radius:10px}
+  .btn:hover{background:var(--blue)}
+  .lb{position:fixed;inset:0;z-index:120;background:rgba(0,0,0,.92);display:none;align-items:center;justify-content:center}
+  .lb.open{display:flex}
+  .lb img{max-width:92vw;max-height:86vh;border-radius:8px}
+  .lb button{position:absolute;border:0;background:rgba(255,255,255,.12);color:#fff;width:50px;height:50px;border-radius:50%;font-size:22px;cursor:pointer}
+  .lb .c{top:18px;right:18px}.lb .p{left:18px}.lb .n{right:18px}
+  .lb .cap{position:absolute;bottom:16px;color:#ccc;font-size:13px}
+
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
+  .reveal.vis{opacity:1;transform:none}
+
+  /* ===== Responsive ===== */
+  @media (max-width:1080px){
+    .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .prods{grid-template-columns:repeat(3,minmax(0,1fr))}
+    footer .cols{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:900px){
+    .burger{display:block}
+    nav{position:absolute;top:72px;left:0;right:0;background:#fff;border-bottom:1px solid var(--line);display:none;box-shadow:var(--sh)}
+    nav.open{display:block}
+    nav ul{flex-direction:column;padding:10px 16px}
+    .hero .wrap,.two,.about,.sub .wrap{grid-template-columns:1fr}
+    .about .intro{position:static}
+    .lead{min-height:380px}
+    .stats .wrap>div{grid-template-columns:1fr 1fr}
+    .stat:nth-child(2){border-right:0}
+    .stat{border-bottom:1px solid rgba(255,255,255,.12)}
+    .mosaic{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px}
+    .mosaic button:nth-child(6){grid-column:span 1}
+    .sub form{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:600px){
+    .topbar .r{display:none}
+    .grid,.prods,footer .cols,.sub form,.facts{grid-template-columns:1fr}
+    .mini{grid-template-columns:96px 1fr}
+    .mini .ph{height:80px}
+    .search input{width:140px}
+    .sheet .cover{height:220px}
+    .sheet .in{padding:22px 18px}
+    .brand b{font-size:13px}
+    .brand img{height:42px}
+    .lead .txt{padding:20px}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="wrap">
+  <span>Chào mừng đến với Công ty Thuốc Lá Thanh Hóa · Kỷ niệm 60 năm (1966 – 2026)</span>
+  <div class="r">
+    <a href="https://thanhhoatobac.com.vn/cong-bo-thong-tin-doanh-nghiep-vb4" target="_blank" rel="noopener">Công bố thông tin DN</a>
+    <a href="http://vanphong.thanhhoatobac.com.vn:88/login" target="_blank" rel="noopener">Văn phòng điện tử</a>
+    <a href="mailto:vinatabath_sales@thanhhoatobac.com.vn">✉ vinatabath_sales@thanhhoatobac.com.vn</a>
+  </div>
+</div></div>
+
+<header><div class="wrap">
+  <a class="brand" href="#top">
+    <img src="https://thanhhoatobac.com.vn/upload/contact/9699untitled-1.jpg" alt="Công ty TNHH MTV Thuốc Lá Thanh Hóa">
+    <div><b>Thuốc Lá Thanh Hóa</b><span>Đậm chất tinh hoa · Hương danh lan tỏa</span></div>
+  </a>
+  <button class="burger" aria-label="Mở menu" aria-expanded="false">☰</button>
+  <nav aria-label="Menu chính"><ul>
+    <li><a href="#top" class="on">Trang chủ</a></li>
+    <li><a href="#tin-tuc">Tin tức</a></li>
+    <li><a href="#hinh-anh">Hình ảnh</a></li>
+    <li><a href="#thong-bao">Thông báo</a></li>
+    <li><a href="#gioi-thieu">Giới thiệu</a></li>
+    <li><a href="#san-pham">Sản phẩm</a></li>
+    <li><a href="#lien-he">Liên hệ</a></li>
+  </ul></nav>
+</div></header>
+
+<div class="ticker"><div class="wrap">
+  <span class="lbl">THÔNG BÁO</span>
+  <div class="track"><div class="move" id="ticker"></div></div>
+</div></div>
+
+<main id="top">
+  <section class="hero"><div class="wrap">
+    <article class="lead" id="lead"></article>
+    <div class="side" id="side"></div>
+  </div></section>
+
+  <section class="stats reveal"><div class="wrap"><div>
+    <div class="stat"><b>1966</b><span>Năm thành lập (12/06/1966)</span></div>
+    <div class="stat"><b>60</b><span>Năm xây dựng &amp; phát triển</span></div>
+    <div class="stat"><b>233</b><span>Sáng kiến nhiệm kỳ 2020–2025</span></div>
+    <div class="stat"><b>15,3 tỷ</b><span>Giá trị làm lợi từ sáng kiến</span></div>
+  </div></div></section>
+
+  <section class="block" id="tin-tuc"><div class="wrap">
+    <div class="head reveal">
+      <div><div class="k">Cập nhật mới nhất</div><h2>Tin tức &amp; Sự kiện</h2></div>
+      <div class="tools">
+        <div id="tabs" class="tools" role="group" aria-label="Lọc chuyên mục"></div>
+        <label class="search"><span>⌕</span><input id="q" type="search" placeholder="Tìm bài viết…" aria-label="Tìm bài viết"></label>
+      </div>
+    </div>
+    <div class="grid" id="grid"></div>
+  </div></section>
+
+  <section class="block gallery-bg" id="hinh-anh"><div class="wrap">
+    <div class="head reveal"><div><div class="k">Khoảnh khắc</div><h2>Hình ảnh hoạt động</h2></div></div>
+    <div class="mosaic" id="mosaic"></div>
+  </div></section>
+
+  <section class="block" id="thong-bao"><div class="wrap">
+    <div class="head reveal"><div><div class="k">Văn bản &amp; pháp luật</div><h2>Thông báo – Bản tin pháp luật</h2></div></div>
+    <div class="two">
+      <div class="panel reveal"><h3>📢 Thông báo <a href="https://thanhhoatobac.com.vn/thong-bao-l40" target="_blank" rel="noopener">Xem tất cả →</a></h3><div id="notices"></div></div>
+      <div class="panel reveal"><h3>⚖️ Bản tin pháp luật <a href="https://thanhhoatobac.com.vn/ban-tin-phap-luat-l48" target="_blank" rel="noopener">Xem tất cả →</a></h3><div id="laws"></div></div>
+    </div>
+  </div></section>
+
+  <section class="block" id="gioi-thieu" style="background:#fff"><div class="wrap about">
+    <div class="intro reveal">
+      <div class="head" style="margin:0"><div><div class="k">Về chúng tôi</div><h2>60 năm một chặng đường</h2></div></div>
+      <p class="slogan">“Đậm chất tinh hoa<br>Hương danh lan tỏa”</p>
+      <p><b>Công ty TNHH MTV Thuốc Lá Thanh Hóa</b> (Thanh Hoa Tobacco Company) ra đời ngày 12/06/1966 với sản phẩm đầu tiên mang nhãn Thu Bồn và Sầm Sơn. Hiện nay Công ty là công ty con của Công ty TNHH MTV Thuốc lá Thăng Long, thuộc Tổng công ty Thuốc lá Việt Nam (Vinataba).</p>
+      <div class="facts">
+        <div><b>12/06/1966</b>Ngày truyền thống</div>
+        <div><b>Xanh hòa bình</b>Màu truyền thống</div>
+        <div><b>“Nhà máy Niềm tin”</b>Bài hát truyền thống – NS Xuân Chung</div>
+        <div><b>Hà Trung, Thanh Hóa</b>Trụ sở chính</div>
+      </div>
+    </div>
+    <ul class="tl" id="timeline"></ul>
+  </div></section>
+
+  <section class="block prod-bg" id="san-pham"><div class="wrap">
+    <div class="head reveal">
+      <div><div class="k">Nhãn hiệu</div><h2>Sản phẩm tiêu biểu</h2></div>
+      <a class="btn" href="https://thanhhoatobac.com.vn/all-products" target="_blank" rel="noopener">Xem toàn bộ sản phẩm →</a>
+    </div>
+    <div class="prods" id="prods"></div>
+    <p class="warn">Sản phẩm thuốc lá chỉ dành cho người từ 18 tuổi trở lên. Hút thuốc lá có hại cho sức khỏe.</p>
+  </div></section>
+</main>
+
+<section class="sub" id="dang-ky"><div class="wrap">
+  <div><h3>Đăng ký nhận bản tin</h3><p>Nhận những tin tức mới nhất từ Công ty Thuốc lá Thanh Hoá.</p></div>
+  <form id="subForm">
+    <input required placeholder="Họ và tên" aria-label="Họ và tên">
+    <input required type="email" placeholder="Email" aria-label="Email">
+    <input type="tel" placeholder="Điện thoại" aria-label="Điện thoại">
+    <button>Đăng ký</button>
+    <div class="ok" id="ok">✓ Cảm ơn bạn đã đăng ký nhận tin!</div>
+  </form>
+</div></section>
+
+<footer id="lien-he">
+  <div class="wrap cols">
+    <div>
+      <h5>Công ty TNHH MTV Thuốc Lá Thanh Hóa</h5>
+      <ul>
+        <li>📍 Số 305, Đường Nguyễn Hoàng, Xã Hà Trung, Tỉnh Thanh Hóa</li>
+        <li>☎ Tel: <a href="tel:02378916666">0237.891.6666</a> · Fax: 0237.891.7777</li>
+        <li>✉ <a href="mailto:vinatabath_sales@thanhhoatobac.com.vn">vinatabath_sales@thanhhoatobac.com.vn</a></li>
+        <li>✉ <a href="mailto:vinataba_th@thanhhoatobac.com.vn">vinataba_th@thanhhoatobac.com.vn</a></li>
+        <li>🌐 <a href="https://thanhhoatobac.com.vn" target="_blank" rel="noopener">thanhhoatobac.com.vn</a></li>
+      </ul>
+    </div>
+    <div><h5>Danh mục</h5><ul>
+      <li><a href="#tin-tuc">Tin tức</a></li><li><a href="#thong-bao">Thông báo</a></li>
+      <li><a href="#gioi-thieu">Giới thiệu</a></li><li><a href="#san-pham">Sản phẩm</a></li>
+      <li><a href="https://thanhhoatobac.com.vn/he-thong-phan-phoi.html" target="_blank" rel="noopener">Hệ thống phân phối</a></li>
+    </ul></div>
+    <div><h5>Tin đoàn thể</h5><ul>
+      <li><a href="https://thanhhoatobac.com.vn/tin-dang-uy-l41" target="_blank" rel="noopener">Tin Đảng ủy</a></li>
+      <li><a href="https://thanhhoatobac.com.vn/tin-cong-doan-l42" target="_blank" rel="noopener">Tin Công đoàn</a></li>
+      <li><a href="https://thanhhoatobac.com.vn/doan-thanh-nien-l43" target="_blank" rel="noopener">Đoàn Thanh niên</a></li>
+      <li><a href="https://thanhhoatobac.com.vn/hoat-dong-khac-l44" target="_blank" rel="noopener">Hoạt động khác</a></li>
+    </ul></div>
+    <div><h5>Đối tác</h5><ul>
+      <li><a href="https://www.vinataba.com.vn/" target="_blank" rel="noopener">Tổng công ty Thuốc lá Việt Nam</a></li>
+      <li><a href="http://www.thanglongtabac.vn/" target="_blank" rel="noopener">Thuốc lá Thăng Long</a></li>
+      <li><a href="https://www.jti.com/asia/vietnam" target="_blank" rel="noopener">JTI Vietnam</a></li>
+    </ul></div>
+  </div>
+  <div class="copy">© Bản quyền thuộc về Công ty TNHH MTV Thuốc Lá Thanh Hóa</div>
+</footer>
+
+<a class="call" href="tel:02378916666">☎ 0237.891.6666</a>
+<button class="totop" id="totop" aria-label="Lên đầu trang">↑</button>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Chi tiết bài viết">
+  <div class="sheet"><button class="x" id="mx" aria-label="Đóng">✕</button><div id="mbody"></div></div>
+</div>
+<div class="lb" id="lb" role="dialog" aria-label="Xem ảnh">
+  <img id="lbimg" alt="">
+  <button class="c" aria-label="Đóng">✕</button><button class="p" aria-label="Ảnh trước">‹</button><button class="n" aria-label="Ảnh sau">›</button>
+  <div class="cap" id="lbcap"></div>
+</div>
+
+<script>
+const SITE = "https://thanhhoatobac.com.vn/";
+const IMG = SITE + "upload/cdn/images/";
+const NEWS_IMG = SITE + "upload/news/";
+const imgs = (base, files) => files.map(f => IMG + base + f);
+
+const NEWS = [
+  { cat:"Sự kiện", date:"11/06/2026", views:846,
+    title:"Công ty Thuốc lá Thanh Hóa tổ chức gặp mặt, tri ân các thế hệ cán bộ nhân dịp kỷ niệm 60 năm thành lập Công ty",
+    excerpt:"Nhân dịp kỷ niệm mốc son 60 năm xây dựng và phát triển (1966 – 2026) của Công ty, ngày 05/6/2026, Công ty TNHH MTV Thuốc lá Thanh Hóa đã long trọng tổ chức buổi gặp mặt, tri ân các thế hệ cán bộ. Buổi gặp mặt diễn ra trong không khí trang trọng, đầm ấm và đầy xúc động.",
+    url:"tin-tuc/cong-ty-thuoc-la-thanh-hoa-to-chuc-gap-mat-tri-an-cac-the-he-can-bo-nhan-dip-ky-niem-60-nam-thanh-lap-n186.html",
+    images: imgs("anh%2060%20nam/", ["TR3_6910.JPG","dang%20uy%20ha%20trung.JPG","TR3_6960.JPG","TR3_7026.JPG","TR3_7116.JPG","TR3_6866.JPG","TR3_6994.JPG","TR3_7064.JPG","TR3_7131.JPG","TR3_7140.JPG","TR3_7227.JPG"]) },
+  { cat:"Đảng ủy", date:"13/06/2025", views:2700,
+    title:"Đại hội đại biểu Đảng bộ Công ty TNHH MTV Thuốc lá Thanh Hoá lần thứ XIX – Dấu mốc quan trọng đưa doanh nghiệp phát triển bền vững trong kỷ nguyên số",
+    excerpt:"Ngày 27/06/2025, Đại hội đại biểu Đảng bộ Công ty TNHH MTV Thuốc lá Thanh Hoá lần thứ XIX, nhiệm kỳ 2025–2030, đã diễn ra trọng thể. Cả nhiệm kỳ trước có 233 sáng kiến với giá trị làm lợi 15,3 tỷ đồng.",
+    url:"tin-tuc/dai-hoi-dai-bieu-dang-bo-cong-ty-tnhh-mtv-thuoc-la-thanh-hoa-lan-thu-xix--dau-moc-quan-trong-dua-doanh-nghiep-phat-trien-ben-vung-trong-ky-nguyen-so-n176.html",
+    images: imgs("anh%20dai%20hoi%202025/", ["LEE01859.JPG","LEE02216%20(1).JPG","LEE01959.JPG","LEE02002.JPG","LEE02166(1).JPG","LEE02011%20(1).JPG","DSC01815%20(2).JPG","LEE02231.JPG","LEE02191(1).JPG"]) },
+  { cat:"Đoàn thể", date:"04/10/2024", views:1657,
+    title:"Sôi nổi Hội thao chào mừng 58 năm ngày thành lập Công ty (12/06/1966 – 12/06/2024)",
+    excerpt:"Ngày 10/06/2024, Công ty Thuốc Lá Thanh Hóa đã long trọng tổ chức lễ kỷ niệm 58 năm thành lập với nhiều hoạt động thể thao sôi nổi. Các hoạt động thể thao đa dạng, thu hút sự tham gia của đông đảo cán bộ, công nhân viên trong Công ty.",
+    url:"tin-tuc/soi-noi--hoi-thao-chao-mung-58-nam-ngay--thanh-lap-cong-ty--12061966--12062024--n172.html",
+    images: imgs("Doan%20thanh%20nien/26032023/58%20nam%20thanh%20lap/", ["bong%20ban8.jpg","bong%20ban6f6.jpg","giai5e.jpg","bong%20truyendc.jpg","bong%20truyen4b.jpg","keo%20co27.jpg","giao%20lu%20bong%20da67.jpg","giai6dc.jpg","giai351.jpg","giai1385.jpg","tri%20%C3%A2n52742.jpg","tri%20ane218.jpg"]) },
+  { cat:"Đoàn thể", date:"27/10/2022", views:2356,
+    title:"Sôi nổi Hội thi khéo tay hay làm chào mừng Ngày Phụ nữ Việt Nam 20/10",
+    excerpt:"Thiết thực chào mừng kỷ niệm 92 năm Ngày thành lập Hội Liên hiệp Phụ nữ Việt Nam và ngày Phụ nữ Việt Nam 20/10, ngày 18/10/2022, Công đoàn Công ty tổ chức Hội thi khéo tay hay làm.",
+    url:"tin-tuc/soi-noi-hoi-thi-kheo-tay-hay-lam-chao-mung-ngay-phu-nu-viet-nam-2010-n163.html",
+    images: imgs("tiem%20chung/1206%20nam%202022/hoi%20thi%2020102022/", ["0543f4826dc4ab9af2d5%20(1).jpg","3961c7705e369868c127(1).jpg","173c8dd11297d4c98d86.jpg","5c0241eedea818f641b9.jpg","0ed5f1cb688daed3f79c.jpg","2faffd446202a45cfd13(1).jpg","5d78d5974ad18c8fd5c0.jpg"]) },
+  { cat:"Đoàn thể", date:"01/07/2022", views:1943,
+    title:"Hội thao, hội diễn văn nghệ chào mừng 56 năm ngày thành lập Công ty",
+    excerpt:"Ngày 08/6 tại Công ty Thuốc lá Thanh Hóa đã khai mạc hội thao, hội diễn văn nghệ quần chúng chào mừng 56 năm ngày thành lập Công ty 12/06/1966 – 12/06/2022. Hội thao diễn ra trong không khí sôi nổi, thu hút toàn thể lãnh đạo, cán bộ công nhân viên người lao động.",
+    url:"tin-tuc/hoi-thao-hoi-dien-van-nghe-chao-mung-chao-mung-56-nam-ngay-thanh-lap-cong-ty-n162.html",
+    images: imgs("tiem%20chung/1206%20nam%202022/", ["8690f346859b46c51f8a%20(1).jpg","c6bd564c1e91ddcf8480%20(1).jpg","0cfc2e1e5ac3999dc0d2.jpg","66b88524f1f932a76be8.jpg","35770a7c42a181ffd8b0.jpg","60aee34eaa9369cd3082.jpg","660d4ea73d7afe24a76b%20(1).jpg","a60cada7d87a1b24426b.jpg"]) },
+  { cat:"Trách nhiệm XH", date:"19/06/2021", views:1623,
+    title:"Ủng hộ quỹ phòng, chống dịch bệnh Covid-19",
+    excerpt:"Ngày 16/06/2021, Chủ tịch Công ty ông Lê Xuân Khải và Chủ tịch Công đoàn bà Đoàn Thị Mai thay mặt Công ty đã trao số tiền 200 triệu đồng cho Ủy ban MTTQ huyện Hà Trung.",
+    url:"tin-tuc/ung-ho-quy-phong-chong-dich-benh-covid-19-n151.html",
+    images:[IMG + "ung%20ho%20covit.jpg"] },
+  { cat:"Ngành thuốc lá", date:"02/06/2021",
+    title:"Kỹ thuật ghim, sấy thuốc lá vàng sấy",
+    excerpt:"Một quy trình sấy thuốc chỉ đúng với từng loại thuốc lá tươi cụ thể, nó phụ thuộc vùng đất, chế độ chăm sóc, độ chín lá, vị bộ lá, thời...",
+    url:"tin-tuc/ky-thuat-ghim-say-thuoc-la-thuoc-la-vang-say-n138.html", images:[NEWS_IMG + "9671cnct12.jpg"] },
+  { cat:"Ngành thuốc lá", date:"02/06/2021",
+    title:"Thuốc lá thế hệ mới: Chỉ đạo quản lý đã lâu nhưng vẫn nằm ngoài luật",
+    excerpt:"Năm 2020, ngoài nỗ lực của cơ quan nhà nước nhằm kiểm soát tác hại thuốc lá toàn diện và mục tiêu tăng tỷ lệ cai nghiện thuốc lá hoàn toàn, việc...",
+    url:"tin-tuc/thuoc-la-the-he-moi-chi-dao-quan-ly-da-lau-nhung-van-nam-ngoai-luat-n137.html", images:[NEWS_IMG + "6822philip1uubc.jpg"] },
+  { cat:"Ngành thuốc lá", date:"02/06/2021",
+    title:"Quy định về sản xuất thuốc lá như nào",
+    excerpt:"Nghị định số 67/2013/NĐ-CP ngày 27/6/2013 của Chính phủ quy định chi tiết một số điều...",
+    url:"tin-tuc/quy-dinh-ve-san-xuat-thuoc-la-nhu-nao-n136.html", images:[NEWS_IMG + "1212dich-vu-xin-giay-phep-kinh-doanh-san-xuat-thuoc-la-1030x687.jpg"] },
+  { cat:"Sự kiện", date:"02/06/2021",
+    title:"Công ty TNHH Một thành viên Thuốc lá Thanh Hóa: Cánh chim đầu đàn của ngành công nghiệp tỉnh Thanh",
+    excerpt:"Là doanh nghiệp nhà nước, trực thuộc Tổng công ty Thuốc lá Việt Nam, trải qua 50 năm xây dựng và phát triển...",
+    url:"tin-tuc/cong-ty-tnhh-mot-thanh-vien-thuoc-la-thanh-hoa-canh-chim-dau-dan-cua-nganh-cong-nghiep-tinh-thanh-n135.html", images:[NEWS_IMG + "34992-ban-lanh-dao-cong-ty-tai-le-ky-niem-50-nam-thanh-lap-va-don-nhan-huan-chuong-lao-dong-hang-nhat.jpg"] },
+  { cat:"Ngành thuốc lá", date:"02/06/2021",
+    title:"Đề xuất mới về sản xuất kinh doanh thuốc lá",
+    excerpt:"(Chinhphu.vn) – Bộ Công Thương đang đề nghị xây dựng Nghị định thay thế Nghị định số 67/2013/NĐ-CP...",
+    url:"tin-tuc/de-xuat-moi-ve-san-xuat-kinh-doanh-thuoc-la-n134.html", images:[NEWS_IMG + "1845thuocla.jpg"] }
+];
+
+const NOTICES = [
+  { type:"bid", date:"05/08/2026", title:"Mời chào giá “Gói thầu thẩm định giá thiết bị thuộc dự án mua sắm và lắp đặt máy điều hòa”", excerpt:"Thư mời chào giá gói thầu thẩm định giá thiết bị thuộc dự án mua sắm và lắp đặt máy điều hòa công nghiệp của Công ty.", url:"thong-bao/moi-chao-gia-goi-thau-tham-dinh-gia-thiet-bi-thuoc-du-an-mua-sam-va-lap-dat-may-dieu-hoa-n194.html" },
+  { type:"bid", date:"16/07/2026", title:"Mời chào giá khay ép điếu xì gà", excerpt:"", url:"thong-bao/moi-chao-gia-khay-ep-dieu-xi-ga-n191.html" },
+  { type:"hire", date:"09/04/2026", title:"Thông báo tuyển dụng lao động", excerpt:"Công ty TNHH MTV Thuốc lá Thanh Hóa thông báo tuyển dụng lao động.", url:"thong-bao/thong-bao-tuyen-dung-lao-dong-n185.html" },
+  { type:"hire", date:"18/08/2025", title:"Thông báo tuyển dụng lao động", excerpt:"Công ty TNHH MTV Thuốc lá Thanh Hóa thông báo tuyển dụng các vị trí.", url:"thong-bao/thong-bao-tuyen-dung-lao-dong-n180.html" },
+  { type:"hire", date:"18/08/2025", title:"Tuyển dụng Nhân viên kỹ thuật nguyên liệu Xì gà", excerpt:"Công ty TNHH MTV Thuốc lá Thanh Hóa thông báo tuyển dụng lao động vị trí: Nhân viên kỹ thuật nguyên liệu Xì gà.", url:"thong-bao/thong-bao-tuyen-dung-lao-dong-n179.html" },
+  { type:"other", date:"17/03/2025", title:"Thông báo thanh lý tài sản cố định và công cụ, dụng cụ", excerpt:"", url:"thong-bao/thong-bao-thanh-ly-tai-san-co-dinh-va-cong-cu-dung-cu--n175.html" }
+];
+const PILL = { hire:["p-hire","Tuyển dụng"], bid:["p-bid","Chào giá"], other:["p-other","Thông báo"] };
+
+const LAWS = [
+  { date:"05/11/2026", title:"Những điểm mới đáng chú ý của Nghị định số 393/2026/NĐ-CP về người lao động nước ngoài làm việc tại Việt Nam", excerpt:"Ngày 20/10/2026, Chính phủ ban hành Nghị định số 393/2026/NĐ-CP quy định về người lao động nước ngoài...", url:"ban-tin-phap-luat/nhung-diem-moi-dang-chu-y-cua-nghi-dinh-so-3932026nd-cp-ve-nguoi-lao-dong-nuoc-ngoai-lam-viec-tai-viet-nam-n201.html" },
+  { date:"05/11/2026", title:"Từ ngày 01/01/2027: Áp dụng mức lương tối thiểu vùng mới đối với người lao động", excerpt:"Ngày 02/11/2026, Chính phủ ban hành Nghị định số 399/2026/NĐ-CP quy định mức lương tối thiểu...", url:"ban-tin-phap-luat/tu-ngay-01012027-ap-dung-muc-luong-toi-thieu-vung-moi-doi-voi-nguoi-lao-dong-n200.html" },
+  { date:"05/11/2026", title:"Những điểm mới đáng chú ý của Luật Phòng, chống tham nhũng sửa đổi năm 2025", excerpt:"Ngày 10/12/2025, Quốc hội đã thông qua Luật số 132/2025/QH15 sửa đổi, bổ sung một số điều của Luật Phòng, chống tham nhũng...", url:"ban-tin-phap-luat/nhung-diem-moi-dang-chu-y-cua-luat-phong-chong-tham-nhung-sua-doi-nam-2025-n199.html" },
+  { date:"30/10/2026", title:"Những điểm mới cần biết về kê khai, kiểm soát tài sản, thu nhập theo Nghị định số 164/2026/NĐ-CP", excerpt:"Ngày 01/7/2026, Nghị định số 164/2026/NĐ-CP của Chính phủ quy định về kiểm soát tài sản, thu nhập...", url:"ban-tin-phap-luat/nhung-diem-moi-can-biet-ve-ke-khai-kiem-soat-tai-san-thu-nhap-theo-nghi-dinh-so-1642026nd-cp-n198.html" },
+  { date:"26/10/2026", title:"Nghị định 349/2026/NĐ-CP: Những điểm mới đáng chú ý trong quy định về lựa chọn nhà thầu", excerpt:"Ngày 09/9/2026, Chính phủ ban hành Nghị định số 349/2026/NĐ-CP sửa đổi, bổ sung một số quy định về lựa chọn nhà thầu...", url:"ban-tin-phap-luat/nghi-dinh-3492026nd-cp-nhung-diem-moi-dang-chu-y-trong-quy-dinh-ve-lua-chon-nha-thau-n197.html" },
+  { date:"21/08/2026", title:"Những điểm mới của Thông tư 93/2026/TT-BTC về in, phát hành, quản lý và sử dụng tem điện tử rượu và tem điện tử thuốc lá", excerpt:"Trong những năm gần đây, cùng với yêu cầu tăng cường quản lý thuế, phòng, chống gian lận thương mại...", url:"ban-tin-phap-luat/nhung-diem-moi-cua-thong-tu-932026tt-bct-quy-dinh-viec-in-phat-hanh-quan-ly-va-su-dung-tem-dien-tu-ruou-va-tem-dien-tu-thuoc-la-n196.html" }
+];
+
+const TIMELINE = [
+  ["11/1965","Khởi công xí nghiệp Thuốc lá Cẩm Lệ trên đồi thôn Quang Biểu, xã Vĩnh Hoà, huyện Vĩnh Lộc, tỉnh Thanh Hóa."],
+  ["01/1966","Tỉnh tuyển 42 thanh niên, học sinh gửi Nhà máy thuốc lá Thăng Long (Hà Nội) học kỹ thuật; ông Phan Sào Nam được cử làm Giám đốc đầu tiên."],
+  ["12/06/1966","11h30 – sản phẩm đầu tiên ra đời với nhãn Thu Bồn và Sầm Sơn. Ngày truyền thống của Công ty."],
+  ["1978 – 1985","Chuyển về Đò Lèn (Hà Phong, Hà Trung); 8/1979 đổi tên Nhà máy Thuốc lá Thanh Hoá; 4/1985 thành Xí nghiệp Liên hiệp Thuốc lá Thanh Hoá với 400 cán bộ công nhân, nhãn Bông Sen."],
+  ["1990","Đổi tên thành Công ty Thuốc lá Thanh Hóa; đầu tư hệ thống máy tự động, dây chuyền khép kín."],
+  ["1996","Gia nhập Tổng công ty Thuốc lá Việt Nam; đổi tên Nhà máy Thuốc lá Thanh Hoá, mở rộng thị trường."],
+  ["2006","Chuyển thành Công ty TNHH MTV Thuốc lá Thanh Hoá, công ty con của Tổng công ty Thuốc lá Việt Nam."],
+  ["01/01/2016","Trở thành công ty con của Công ty TNHH MTV Thuốc lá Thăng Long."],
+  ["2026","Kỷ niệm 60 năm xây dựng và phát triển (1966 – 2026)."]
+];
+
+const PRODUCTS = [
+  ["Lotus Club","Xì gà","Xì gà Lotus Club hộp giấy 10 điếu","xi-ga-lotus-club-hop-giay-10-dieu-p461.html"],
+  ["Lotus Golf","Xì gà","Xì gà Lotus Golf hộp 5 điếu","xi-ga-lotus-golf-hop-5-dieu-p460.html"],
+  ["Lotus Sen Hạc","Super Slim","Thuốc lá điếu đầu lọc Lotus Sen Hạc Super Slim bao cứng","thuoc-la-dieu-dau-loc-lotus-sen-hac-super-slim-bao-cung-p459.html"],
+  ["Tre Xanh SS3","Đầu lọc","Thuốc lá điếu đầu lọc Tre Xanh SS3","thuoc-la-dieu-dau-loc-tre-xanh-ss3-p458.html"],
+  ["Lotus Trầm Kỳ","Đầu lọc","Thuốc lá điếu đầu lọc Lotus Trầm Kỳ","thuoc-la-dieu-dau-loc--lotus-tram-ky-p457.html"],
+  ["VTL Boong Hay","Đầu lọc","Thuốc lá điếu đầu lọc VTL Boong Hay","thuoc-la-dieu-dau-loc-vtl-boong-hay-p456.html"],
+  ["CanSon","Bao cứng","Thuốc lá điếu đầu lọc CanSon bao cứng","thuoc-la-dieu-dau-loc-canson-bao-cung-p455.html"],
+  ["Lotus Xì gà 30","Đầu lọc","Thuốc lá điếu đầu lọc Lotus Xì gà 30 điếu","thuoc-la-dieu-dau-loc-lotus-xi-ga-30-dieu-p454.html"],
+  ["Lotus Xì gà 20","Super Slim","Lotus Xì gà 20 điếu bao cứng Super Slim","thuoc-la-dieu-dau-loc--lotus-xi-ga-20-dieu-bao-cung-super-slim-p453.html"],
+  ["Lotus DM2","Đầu lọc","Thuốc lá điếu đầu lọc Lotus DM2","thuoc-la-dieu-dau-loc-lotus-dm2-p452.html"],
+  ["Lotus Rồng","Đầu lọc","Thuốc lá điếu đầu lọc Lotus Rồng","thuoc-la-dieu-dau-loc-lotus-rong-p451.html"],
+  ["Tre Xanh SL3","Đầu lọc","Thuốc lá điếu đầu lọc Tre Xanh SL3","thuoc-la-dieu-dau-loc--tre-xanh-sl3-p450.html"]
+];
+
+/* ---------- helpers ---------- */
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const ext = u => `href="${SITE + u}" target="_blank" rel="noopener"`;
+const fallback = n => `<div class="fb"><div><small>${esc(n.cat)}</small>${n.date.slice(-4)}</div></div>`;
+const photo = (n, i = 0) => n.images[i]
+  ? `<img loading="lazy" src="${n.images[i]}" alt="${esc(n.title)}" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'fb',innerHTML:'<div><small>${esc(n.cat)}</small>${n.date.slice(-4)}</div>'}))">`
+  : fallback(n);
+const norm = s => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/đ/g, "d");
+NEWS.forEach((n, i) => n.id = i);
+
+/* ---------- hero ---------- */
+const lead = NEWS[0];
+$("#lead").innerHTML = `${photo(lead)}<div class="txt"><span class="badge">★ Tin nổi bật · 60 năm</span>
+  <h1>${esc(lead.title)}</h1><p>${esc(lead.excerpt.split(". ")[0])}.</p></div>`;
+$("#lead").onclick = () => openNews(0);
+$("#side").innerHTML = NEWS.slice(1, 4).map(n => `<article class="mini" data-id="${n.id}">
+  <div class="ph">${photo(n)}</div><div><h3>${esc(n.title)}</h3><div class="date">📅 ${n.date}</div></div></article>`).join("");
+
+/* ---------- ticker ---------- */
+const tk = NOTICES.map(n => `<a ${ext(n.url)}>• ${esc(n.title)} (${n.date})</a>`).join("");
+$("#ticker").innerHTML = tk + tk;
+
+/* ---------- news grid ---------- */
+let cat = "Tất cả", q = "";
+const cats = ["Tất cả", ...new Set(NEWS.map(n => n.cat))];
+$("#tabs").innerHTML = cats.map(c => `<button class="tab" aria-pressed="${c === cat}">${c}</button>`).join("");
+$("#tabs").onclick = e => {
+  const b = e.target.closest(".tab"); if (!b) return;
+  cat = b.textContent;
+  $("#tabs").querySelectorAll(".tab").forEach(t => t.setAttribute("aria-pressed", t === b));
+  renderGrid();
+};
+$("#q").oninput = e => { q = e.target.value.trim(); renderGrid(); };
+function renderGrid(){
+  const list = NEWS.filter(n => (cat === "Tất cả" || n.cat === cat) && (!q || norm(n.title + " " + n.excerpt).includes(norm(q))));
+  $("#grid").innerHTML = list.length ? list.map(n => `<article class="card" data-id="${n.id}">
+    <div class="ph"><span class="cat">${esc(n.cat)}</span>${photo(n)}${n.images.length > 1 ? `<span class="cnt">📷 ${n.images.length}</span>` : ""}</div>
+    <div class="bd"><div class="date">📅 ${n.date}${n.views ? ` · 👁 ${n.views.toLocaleString("vi-VN")} lượt xem` : ""}</div>
+    <h3>${esc(n.title)}</h3><p>${esc(n.excerpt)}</p><span class="rm">Đọc tiếp →</span></div></article>`).join("")
+    : `<div class="empty">Không tìm thấy bài viết phù hợp với “${esc(q)}”.</div>`;
+}
+renderGrid();
+document.addEventListener("click", e => { const c = e.target.closest("[data-id]"); if (c) openNews(+c.dataset.id); });
+
+/* ---------- gallery ---------- */
+const GAL = [NEWS[0].images[0], NEWS[1].images[0], NEWS[2].images[5], NEWS[0].images[3], NEWS[3].images[0],
+             NEWS[1].images[2], NEWS[4].images[0], NEWS[2].images[6], NEWS[0].images[8]];
+$("#mosaic").innerHTML = GAL.map((s, i) => `<button data-g="${i}" aria-label="Xem ảnh ${i + 1}"><img loading="lazy" src="${s}" alt=""></button>`).join("");
+$("#mosaic").onclick = e => { const b = e.target.closest("[data-g]"); if (b) openLb(GAL, +b.dataset.g); };
+
+/* ---------- notices & laws ---------- */
+const cal = d => `<div class="cal"><b>${d.slice(0,2)}</b><small>Th${d.slice(3,5)}/${d.slice(-2)}</small></div>`;
+$("#notices").innerHTML = NOTICES.map(n => `<div class="item">${cal(n.date)}<div>
+  <h4><span class="pill ${PILL[n.type][0]}">${PILL[n.type][1]}</span><a ${ext(n.url)}>${esc(n.title)}</a></h4>
+  ${n.excerpt ? `<p>${esc(n.excerpt)}</p>` : ""}</div></div>`).join("");
+$("#laws").innerHTML = LAWS.map(n => `<div class="item">${cal(n.date)}<div>
+  <h4><a ${ext(n.url)}>${esc(n.title)}</a></h4><p>${esc(n.excerpt)}</p></div></div>`).join("");
+
+/* ---------- timeline & products ---------- */
+$("#timeline").innerHTML = TIMELINE.map(([y, t]) => `<li class="reveal"><b>${y}</b><p>${esc(t)}</p></li>`).join("");
+$("#prods").innerHTML = PRODUCTS.map(([n, c, d, u]) => `<div class="prod reveal"><small>${c}</small>
+  <div class="brandname">${esc(n)}</div><p>${esc(d)}</p><a ${ext(u)}>Chi tiết →</a></div>`).join("");
+
+/* ---------- reader modal ---------- */
+const modal = $("#modal");
+function openNews(i){
+  const n = NEWS[i];
+  $("#mbody").innerHTML = `<div class="ph cover">${photo(n)}</div><div class="in">
+    <span class="badge">${esc(n.cat)}</span>
+    <h2>${esc(n.title)}</h2>
+    <div class="date">📅 ${n.date}${n.views ? ` · 👁 ${n.views.toLocaleString("vi-VN")} lượt xem` : ""}</div>
+    <p class="lede">${esc(n.excerpt)}</p>
+    ${n.images.length > 1 ? `<h4 style="color:var(--navy);margin:24px 0 0">📷 Hình ảnh sự kiện (${n.images.length})</h4>
+      <div class="thumbs">${n.images.map((s, k) => `<button data-k="${k}" aria-label="Ảnh ${k + 1}"><img loading="lazy" src="${s}" alt=""></button>`).join("")}</div>` : ""}
+    <a class="btn" ${ext(n.url)}>Đọc toàn văn bài viết ↗</a></div>`;
+  $("#mbody").querySelectorAll("[data-k]").forEach(b => b.onclick = ev => { ev.stopPropagation(); openLb(n.images, +b.dataset.k); });
+  modal.classList.add("open"); document.body.style.overflow = "hidden"; modal.scrollTop = 0;
+}
+const closeModal = () => { modal.classList.remove("open"); document.body.style.overflow = ""; };
+$("#mx").onclick = closeModal;
+modal.onclick = e => { if (e.target === modal) closeModal(); };
+
+/* ---------- lightbox ---------- */
+let lbList = [], lbI = 0;
+const lb = $("#lb");
+function openLb(list, i){ lbList = list; lbI = i; showLb(); lb.classList.add("open"); }
+function showLb(){ $("#lbimg").src = lbList[lbI]; $("#lbcap").textContent = `${lbI + 1} / ${lbList.length}`; }
+const step = d => { lbI = (lbI + d + lbList.length) % lbList.length; showLb(); };
+lb.querySelector(".c").onclick = () => lb.classList.remove("open");
+lb.querySelector(".p").onclick = () => step(-1);
+lb.querySelector(".n").onclick = () => step(1);
+lb.onclick = e => { if (e.target === lb) lb.classList.remove("open"); };
+document.addEventListener("keydown", e => {
+  if (lb.classList.contains("open")) {
+    if (e.key === "Escape") lb.classList.remove("open");
+    if (e.key === "ArrowLeft") step(-1);
+    if (e.key === "ArrowRight") step(1);
+  } else if (e.key === "Escape") closeModal();
+});
+
+/* ---------- misc ---------- */
+$("#subForm").onsubmit = e => { e.preventDefault(); e.target.reset(); $("#ok").style.display = "block"; };
+const burger = $(".burger"), nav = $("nav");
+burger.onclick = () => burger.setAttribute("aria-expanded", nav.classList.toggle("open"));
+nav.onclick = e => { if (e.target.tagName === "A") nav.classList.remove("open"); };
+
+const io = new IntersectionObserver(es => es.forEach(x => { if (x.isIntersecting) { x.target.classList.add("vis"); io.unobserve(x.target); } }), { threshold: .12 });
+document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+
+const links = [...document.querySelectorAll("nav a")];
+const secs = links.map(a => document.querySelector(a.getAttribute("href")));
+addEventListener("scroll", () => {
+  $("#totop").classList.toggle("show", scrollY > 600);
+  let cur = 0; secs.forEach((s, i) => { if (s && s.getBoundingClientRect().top < 120) cur = i; });
+  links.forEach((a, i) => a.classList.toggle("on", i === cur));
+}, { passive: true });
+$("#totop").onclick = () => scrollTo({ top: 0, behavior: "smooth" });
+</script>
+</body>
+</html>

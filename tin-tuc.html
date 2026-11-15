@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tin tức – Công ty TNHH MTV Thuốc Lá Thanh Hóa</title>
+<meta name="description" content="Tin tức, sự kiện và hoạt động của Công ty TNHH MTV Thuốc Lá Thanh Hóa (Vinataba Thanh Hóa).">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Noto+Serif:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --red:#9b1c1f; --red-dark:#6f1214; --gold:#c9a24a; --gold-soft:#f5ecd6;
+    --ink:#1f2328; --muted:#5d6670; --line:#e6e1d8; --bg:#faf8f4; --card:#ffffff;
+    --radius:10px; --shadow:0 6px 20px rgba(60,30,10,.08);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:"Be Vietnam Pro",system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 16px}
+
+  /* Top bar */
+  .topbar{background:var(--red-dark);color:#f3e6c8;font-size:13px}
+  .topbar .wrap{display:flex;justify-content:space-between;gap:12px;padding:7px 16px;flex-wrap:wrap}
+  .topbar a:hover{color:#fff}
+  .topbar .links{display:flex;gap:18px}
+
+  /* Header */
+  header.site{background:#fff;border-bottom:3px solid var(--gold);position:sticky;top:0;z-index:50;box-shadow:0 2px 10px rgba(0,0,0,.04)}
+  header.site .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:10px 16px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand img{height:56px;width:auto}
+  .brand .name{font-weight:800;color:var(--red);font-size:15px;line-height:1.25;text-transform:uppercase}
+  .brand .name small{display:block;color:var(--muted);font-weight:500;text-transform:none;font-size:12px}
+  nav.menu ul{list-style:none;margin:0;padding:0;display:flex;gap:2px}
+  nav.menu > ul > li{position:relative}
+  nav.menu > ul > li > a{display:block;padding:12px 12px;font-weight:600;font-size:14px;border-radius:6px}
+  nav.menu > ul > li > a:hover,nav.menu a.active{color:var(--red);background:var(--gold-soft)}
+  nav.menu .sub{position:absolute;left:0;top:100%;min-width:240px;background:#fff;border:1px solid var(--line);border-top:3px solid var(--red);border-radius:0 0 8px 8px;box-shadow:var(--shadow);display:none;flex-direction:column;padding:6px 0}
+  nav.menu li:hover > .sub,nav.menu li:focus-within > .sub{display:flex}
+  nav.menu .sub a{padding:8px 16px;font-size:14px}
+  nav.menu .sub a:hover{background:var(--gold-soft);color:var(--red)}
+  .burger{display:none;background:none;border:1px solid var(--line);border-radius:6px;padding:8px 10px;font-size:20px;cursor:pointer}
+
+  /* Page banner */
+  .banner{background:linear-gradient(120deg,var(--red-dark),var(--red) 60%,#b8342f);color:#fff;position:relative;overflow:hidden}
+  .banner::after{content:"";position:absolute;right:-80px;top:-80px;width:320px;height:320px;border-radius:50%;border:40px solid rgba(201,162,74,.18)}
+  .banner .wrap{padding:38px 16px 34px}
+  .crumbs{font-size:13px;opacity:.85}
+  .crumbs a:hover{text-decoration:underline}
+  .banner h1{font-family:"Noto Serif",serif;font-size:clamp(26px,4vw,38px);margin:6px 0 4px}
+  .banner p{margin:0;opacity:.9;max-width:640px}
+
+  /* Layout */
+  main .wrap{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:32px;padding-top:32px;padding-bottom:48px}
+
+  /* Featured */
+  .featured{display:grid;grid-template-columns:1.15fr 1fr;background:var(--card);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);margin-bottom:28px}
+  .featured .thumb{min-height:280px}
+  .featured .body{padding:26px}
+  .featured h2{font-family:"Noto Serif",serif;font-size:22px;line-height:1.35;margin:10px 0}
+  .featured h2 a:hover{color:var(--red)}
+
+  .thumb{position:relative;background:linear-gradient(135deg,var(--red) 0%,var(--red-dark) 100%);display:flex;align-items:flex-end;color:#fff;overflow:hidden}
+  .thumb::before{content:"";position:absolute;inset:0;background:url("https://thanhhoatobac.com.vn/upload/partner/556426299589banner-vinataba.jpg") center/cover;opacity:.22;mix-blend-mode:luminosity}
+  .thumb .stamp{position:relative;margin:14px;background:rgba(0,0,0,.35);backdrop-filter:blur(2px);border-left:3px solid var(--gold);padding:6px 12px;border-radius:4px;font-size:13px;font-weight:600}
+  .thumb .big{position:absolute;right:14px;top:8px;font-family:"Noto Serif",serif;font-size:64px;font-weight:700;color:rgba(255,255,255,.14);line-height:1}
+
+  .tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:var(--red);background:var(--gold-soft);padding:3px 10px;border-radius:999px}
+  .meta{font-size:13px;color:var(--muted);display:flex;gap:6px;align-items:center}
+  .excerpt{color:var(--muted);margin:0 0 14px}
+  .more{font-weight:700;color:var(--red);font-size:14px}
+  .more:hover{text-decoration:underline}
+
+  /* Toolbar */
+  .toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+  .toolbar h3{margin:0;font-size:18px;border-left:4px solid var(--red);padding-left:10px}
+  .chips{display:flex;gap:8px;flex-wrap:wrap}
+  .chip{border:1px solid var(--line);background:#fff;padding:6px 14px;border-radius:999px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;color:var(--ink)}
+  .chip[aria-pressed="true"]{background:var(--red);border-color:var(--red);color:#fff}
+
+  /* Grid */
+  .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+  .card{background:var(--card);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}
+  .card:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(60,30,10,.12)}
+  .card .thumb{height:170px}
+  .card .body{padding:18px;display:flex;flex-direction:column;flex:1}
+  .card h4{font-size:16px;line-height:1.45;margin:8px 0 8px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+  .card h4 a:hover{color:var(--red)}
+  .card .excerpt{font-size:14px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;flex:1}
+  .empty{grid-column:1/-1;text-align:center;color:var(--muted);padding:40px;background:#fff;border-radius:var(--radius)}
+
+  .pager{display:flex;justify-content:center;gap:6px;margin-top:30px}
+  .pager a,.pager span{min-width:40px;height:40px;display:grid;place-items:center;padding:0 12px;border-radius:8px;border:1px solid var(--line);background:#fff;font-weight:600;font-size:14px}
+  .pager .cur{background:var(--red);color:#fff;border-color:var(--red)}
+  .pager a:hover{border-color:var(--red);color:var(--red)}
+
+  /* Sidebar */
+  aside .box{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:20px;margin-bottom:22px}
+  aside h5{margin:0 0 14px;font-size:16px;text-transform:uppercase;color:var(--red);letter-spacing:.02em;border-bottom:2px solid var(--gold-soft);padding-bottom:8px}
+  .search{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+  .search input{flex:1;border:0;padding:10px 12px;font:inherit;font-size:14px;outline:none;min-width:0}
+  .search button{border:0;background:var(--red);color:#fff;padding:0 14px;cursor:pointer;font-size:16px}
+  .cats{list-style:none;margin:0;padding:0}
+  .cats li a{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px dashed var(--line);font-size:14px}
+  .cats li:last-child a{border:0}
+  .cats li a:hover{color:var(--red)}
+  .cats .child a{padding-left:16px;color:var(--muted)}
+  .recent{list-style:none;margin:0;padding:0;counter-reset:n}
+  .recent li{display:flex;gap:12px;padding:10px 0;border-bottom:1px dashed var(--line);font-size:14px;line-height:1.4}
+  .recent li:last-child{border:0}
+  .recent li::before{counter-increment:n;content:counter(n);flex:0 0 28px;height:28px;border-radius:50%;background:var(--gold-soft);color:var(--red);font-weight:800;display:grid;place-items:center;font-size:13px}
+  .recent a:hover{color:var(--red)}
+  .recent small{display:block;color:var(--muted);margin-top:3px}
+  .anniv{background:linear-gradient(150deg,var(--red),var(--red-dark));color:#fff;text-align:center}
+  .anniv .n{font-family:"Noto Serif",serif;font-size:64px;font-weight:700;color:var(--gold);line-height:1}
+  .anniv p{margin:6px 0 0;font-size:14px;opacity:.9}
+  .quick a{display:block;text-align:center;padding:11px;border-radius:8px;font-weight:700;font-size:14px;margin-bottom:10px;border:2px solid var(--red);color:var(--red)}
+  .quick a:last-child{margin:0}
+  .quick a:hover{background:var(--red);color:#fff}
+
+  /* Newsletter */
+  .newsletter{background:var(--gold-soft);border-top:1px solid #eadfc2}
+  .newsletter .wrap{display:grid;grid-template-columns:1fr 1.3fr;gap:30px;align-items:center;padding:34px 16px}
+  .newsletter h3{margin:0 0 6px;color:var(--red);font-size:20px}
+  .newsletter p{margin:0;color:var(--muted)}
+  .newsletter form{display:grid;grid-template-columns:repeat(3,1fr) auto;gap:10px}
+  .newsletter input{border:1px solid #e0d3ae;border-radius:8px;padding:11px 12px;font:inherit;font-size:14px;min-width:0}
+  .newsletter button{border:0;border-radius:8px;background:var(--red);color:#fff;font-weight:700;padding:0 18px;cursor:pointer;font-family:inherit;font-size:13px;white-space:nowrap}
+  .newsletter button:hover{background:var(--red-dark)}
+  .msg{grid-column:1/-1;font-size:14px;color:#1d7a3a;display:none}
+
+  /* Footer */
+  footer{background:#231a17;color:#cfc6b8;font-size:14px}
+  footer .cols{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:30px;padding:40px 16px 28px}
+  footer h6{color:var(--gold);font-size:15px;margin:0 0 14px;text-transform:uppercase;letter-spacing:.04em}
+  footer ul{list-style:none;margin:0;padding:0}
+  footer li{margin-bottom:8px}
+  footer a:hover{color:#fff}
+  .partners{display:flex;gap:10px;flex-wrap:wrap}
+  .partners a{border:1px solid #4a3d36;border-radius:6px;padding:6px 12px;font-size:13px}
+  .copy{border-top:1px solid #3a2f2a;text-align:center;padding:14px 16px;font-size:13px;color:#9d9284}
+
+  .callbtn{position:fixed;left:16px;bottom:16px;z-index:60;background:var(--red);color:#fff;padding:12px 18px;border-radius:999px;font-weight:700;box-shadow:0 8px 20px rgba(155,28,31,.4);display:flex;gap:8px;align-items:center;font-size:14px}
+  .callbtn span{animation:ring 1.6s infinite}
+  @keyframes ring{0%,100%{transform:rotate(0)}10%,30%{transform:rotate(-15deg)}20%,40%{transform:rotate(15deg)}50%{transform:rotate(0)}}
+
+  /* Responsive */
+  @media (max-width:1024px){
+    main .wrap{grid-template-columns:1fr}
+    aside{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+    aside .box{margin:0}
+  }
+  @media (max-width:900px){
+    .burger{display:block}
+    nav.menu{position:absolute;left:0;right:0;top:100%;background:#fff;border-bottom:3px solid var(--gold);display:none;max-height:75vh;overflow:auto}
+    nav.menu.open{display:block}
+    nav.menu ul{flex-direction:column;padding:8px 16px}
+    nav.menu .sub{position:static;display:flex;box-shadow:none;border:0;padding:0 0 0 14px}
+    .featured{grid-template-columns:1fr}
+    .featured .thumb{min-height:200px}
+    .newsletter .wrap{grid-template-columns:1fr}
+  }
+  @media (max-width:640px){
+    .grid,aside{grid-template-columns:1fr}
+    .newsletter form{grid-template-columns:1fr}
+    .newsletter button{padding:12px}
+    footer .cols{grid-template-columns:1fr}
+    .topbar .links{display:none}
+    .brand img{height:44px}
+    .brand .name{font-size:13px}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <span>Chào mừng đến với Công ty Thuốc Lá Thanh Hóa</span>
+    <div class="links">
+      <a href="https://thanhhoatobac.com.vn/cong-bo-thong-tin-doanh-nghiep-vb4" target="_blank" rel="noopener">Công bố thông tin DN</a>
+      <a href="http://vanphong.thanhhoatobac.com.vn:88/login" target="_blank" rel="noopener">Văn phòng điện tử</a>
+      <a href="tel:02378916666">☎ 0237.891.6666</a>
+    </div>
+  </div>
+</div>
+
+<header class="site">
+  <div class="wrap" style="position:relative">
+    <a class="brand" href="https://thanhhoatobac.com.vn/">
+      <img src="https://thanhhoatobac.com.vn/upload/contact/9699untitled-1.jpg" alt="Công Ty Tnhh Mtv Thuốc Lá Thanh Hóa">
+      <span class="name">Thuốc Lá Thanh Hóa<small>Công ty TNHH MTV · Vinataba Thanh Hóa</small></span>
+    </a>
+    <button class="burger" aria-label="Mở menu" aria-expanded="false">☰</button>
+    <nav class="menu" aria-label="Menu chính">
+      <ul>
+        <li><a href="https://thanhhoatobac.com.vn/">Trang chủ</a></li>
+        <li><a href="https://thanhhoatobac.com.vn/ladoda/gioi-thieu-ve-chung-toi-a3.html">Giới thiệu ▾</a>
+          <div class="sub">
+            <a href="https://thanhhoatobac.com.vn/gioi-thieu-cong-ty-a17.html">Giới thiệu công ty</a>
+            <a href="https://thanhhoatobac.com.vn/tom-tat-truyen-thong-a18.html">Tóm tắt truyền thống</a>
+            <a href="https://thanhhoatobac.com.vn/so-do-to-chuc-a20.html">Sơ đồ tổ chức</a>
+            <a href="https://thanhhoatobac.com.vn/nang-luc-a21.html">Tầm nhìn sứ mệnh lịch sử</a>
+            <a href="https://thanhhoatobac.com.vn/nhung-bai-hat-truyen-thong-a26.html">Những bài hát truyền thống</a>
+            <a href="https://thanhhoatobac.com.vn/qua-trinh-san-xuat-a22.html">Quy trình sản xuất</a>
+            <a href="https://thanhhoatobac.com.vn/trach-nhiem-voi-xa-hoi-a28.html">Trách nhiệm xã hội</a>
+            <a href="https://thanhhoatobac.com.vn/thanh-tuu-dat-duoc-a23.html">Thành tựu đạt được</a>
+            <a href="https://thanhhoatobac.com.vn/hop-tac-quoc-te--a27.html">Hợp tác quốc tế</a>
+          </div>
+        </li>
+        <li><a class="active" href="#">Tin tức</a></li>
+        <li><a href="https://thanhhoatobac.com.vn/thong-bao-l40">Thông báo</a></li>
+        <li><a href="https://thanhhoatobac.com.vn/tin-doan-the-l36">Tin đoàn thể ▾</a>
+          <div class="sub">
+            <a href="https://thanhhoatobac.com.vn/tin-dang-uy-l41">Tin đảng ủy</a>
+            <a href="https://thanhhoatobac.com.vn/tin-cong-doan-l42">Tin công đoàn</a>
+            <a href="https://thanhhoatobac.com.vn/doan-thanh-nien-l43">Đoàn thanh niên</a>
+            <a href="https://thanhhoatobac.com.vn/hoat-dong-khac-l44">Hoạt động khác</a>
+          </div>
+        </li>
+        <li><a href="https://thanhhoatobac.com.vn/all-products">Sản phẩm</a></li>
+        <li><a href="https://thanhhoatobac.com.vn/he-thong-phan-phoi.html">Phân phối</a></li>
+        <li><a href="https://thanhhoatobac.com.vn/lien-he.html">Liên hệ</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="banner">
+  <div class="wrap">
+    <div class="crumbs"><a href="https://thanhhoatobac.com.vn/">Trang chủ</a> › Tin tức</div>
+    <h1>Tin tức &amp; Sự kiện</h1>
+    <p>Cập nhật hoạt động sản xuất kinh doanh, công tác Đảng, Công đoàn, Đoàn thanh niên và các sự kiện của Công ty TNHH MTV Thuốc Lá Thanh Hóa.</p>
+  </div>
+</section>
+
+<main>
+  <div class="wrap">
+    <section>
+      <article class="featured" id="featured"></article>
+
+      <div class="toolbar">
+        <h3>Tin mới cập nhật</h3>
+        <div class="chips" role="group" aria-label="Lọc theo năm" id="chips"></div>
+      </div>
+
+      <div class="grid" id="grid"></div>
+
+      <nav class="pager" aria-label="Phân trang">
+        <span aria-disabled="true">«</span>
+        <span class="cur">1</span>
+        <a href="https://thanhhoatobac.com.vn/tin-tuc-l39/2" target="_blank" rel="noopener">2</a>
+        <a href="https://thanhhoatobac.com.vn/tin-tuc-l39/2" target="_blank" rel="noopener" aria-label="Trang tiếp">»</a>
+      </nav>
+    </section>
+
+    <aside>
+      <div class="box">
+        <h5>Tìm kiếm tin</h5>
+        <form class="search" id="searchForm" role="search">
+          <input id="q" type="search" placeholder="Nhập từ khóa…" aria-label="Từ khóa">
+          <button type="submit" aria-label="Tìm">⌕</button>
+        </form>
+      </div>
+
+      <div class="box anniv">
+        <div class="n">60</div>
+        <strong>NĂM XÂY DỰNG &amp; PHÁT TRIỂN</strong>
+        <p>12/06/1966 – 12/06/2026</p>
+      </div>
+
+      <div class="box">
+        <h5>Danh mục tin</h5>
+        <ul class="cats">
+          <li><a href="#">Tin tức <span>›</span></a></li>
+          <li><a href="https://thanhhoatobac.com.vn/thong-bao-l40">Thông báo <span>›</span></a></li>
+          <li><a href="https://thanhhoatobac.com.vn/tin-doan-the-l36">Tin tức đoàn thể <span>›</span></a></li>
+          <li class="child"><a href="https://thanhhoatobac.com.vn/tin-dang-uy-l41">Tin đảng ủy <span>›</span></a></li>
+          <li class="child"><a href="https://thanhhoatobac.com.vn/tin-cong-doan-l42">Tin công đoàn <span>›</span></a></li>
+          <li class="child"><a href="https://thanhhoatobac.com.vn/doan-thanh-nien-l43">Đoàn thanh niên <span>›</span></a></li>
+          <li class="child"><a href="https://thanhhoatobac.com.vn/hoat-dong-khac-l44">Hoạt động khác <span>›</span></a></li>
+          <li class="child"><a href="https://thanhhoatobac.com.vn/ban-tin-phap-luat-l48">Bản tin pháp luật <span>›</span></a></li>
+        </ul>
+      </div>
+
+      <div class="box">
+        <h5>Đọc nhiều</h5>
+        <ol class="recent" id="recent"></ol>
+      </div>
+
+      <div class="box quick">
+        <h5>Liên kết nhanh</h5>
+        <a href="https://thanhhoatobac.com.vn/cong-bo-thong-tin-doanh-nghiep-vb4" target="_blank" rel="noopener">Công bố thông tin DN</a>
+        <a href="http://vanphong.thanhhoatobac.com.vn:88/login" target="_blank" rel="noopener">Văn phòng điện tử</a>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<section class="newsletter">
+  <div class="wrap">
+    <div>
+      <h3>Đăng ký nhận thông tin</h3>
+      <p>Đăng ký nhận thông tin để nhận những tin tức mới nhất từ Công ty Thuốc lá Thanh Hoá.</p>
+    </div>
+    <form id="subForm">
+      <input required placeholder="Họ và tên" aria-label="Họ và tên">
+      <input required type="email" placeholder="Email" aria-label="Email">
+      <input type="tel" placeholder="Điện thoại" aria-label="Điện thoại">
+      <button type="submit">GỬI ĐĂNG KÝ</button>
+      <div class="msg" id="subMsg">✓ Cảm ơn bạn đã đăng ký nhận tin!</div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap cols">
+    <div>
+      <h6>Vinataba Thanh Hóa</h6>
+      <ul>
+        <li><strong style="color:#fff">CÔNG TY TNHH MTV THUỐC LÁ THANH HÓA</strong></li>
+        <li>📍 Số 305, Đường Nguyễn Hoàng, Xã Hà Trung, Tỉnh Thanh Hóa</li>
+        <li>☎ Tel: <a href="tel:02378916666">0237.891.6666</a></li>
+        <li>✉ Email: <a href="mailto:vinatabath_sales@thanhhoatobac.com.vn">vinatabath_sales@thanhhoatobac.com.vn</a></li>
+        <li>🌐 Website: <a href="https://thanhhoatobac.com.vn">thanhhoatobac.com.vn</a></li>
+      </ul>
+    </div>
+    <div>
+      <h6>Danh mục</h6>
+      <ul>
+        <li><a href="https://thanhhoatobac.com.vn/">Trang chủ</a></li>
+        <li><a href="https://thanhhoatobac.com.vn/ladoda/gioi-thieu-ve-chung-toi-a3.html">Giới thiệu</a></li>
+        <li><a href="#">Tin tức</a></li>
+        <li><a href="https://thanhhoatobac.com.vn/thong-bao-l40">Thông báo</a></li>
+        <li><a href="https://thanhhoatobac.com.vn/tin-doan-the-l36">Tin đoàn thể</a></li>
+        <li><a href="https://thanhhoatobac.com.vn/lien-he.html">Liên hệ</a></li>
+      </ul>
+    </div>
+    <div>
+      <h6>Đối tác</h6>
+      <div class="partners">
+        <a href="https://www.vinataba.com.vn/" target="_blank" rel="noopener">Vinataba</a>
+        <a href="https://www.jti.com/asia/vietnam" target="_blank" rel="noopener">JTI Vietnam</a>
+        <a href="http://www.thanglongtabac.vn/" target="_blank" rel="noopener">Thăng Long Tobacco</a>
+      </div>
+    </div>
+  </div>
+  <div class="copy">Bản quyền thuộc về Công Ty TNHH MTV Thuốc Lá Thanh Hóa</div>
+</footer>
+
+<a class="callbtn" href="tel:02378916666"><span>☎</span> 0237.891.6666</a>
+
+<script>
+  const BASE = "https://thanhhoatobac.com.vn/tin-tuc/";
+  const NEWS = [
+    { title: "Công ty Thuốc lá Thanh Hóa tổ chức gặp mặt, tri ân các thế hệ cán bộ nhân dịp kỷ niệm 60 năm thành lập Công ty",
+      date: "11/06/2026", tag: "Sự kiện",
+      excerpt: "Nhân dịp kỷ niệm mốc son 60 năm xây dựng và phát triển (1966 – 2026) của Công ty, ngày 05/6/2026, Công ty TNHH MTV Thuốc lá Thanh Hóa đã long trọng...",
+      url: "cong-ty-thuoc-la-thanh-hoa-to-chuc-gap-mat-tri-an-cac-the-he-can-bo-nhan-dip-ky-niem-60-nam-thanh-lap-n186.html" },
+    { title: "Đại hội đại biểu Đảng bộ Công ty TNHH MTV Thuốc lá Thanh Hoá lần thứ XIX – Dấu mốc quan trọng đưa doanh nghiệp phát triển bền vững trong kỷ nguyên số",
+      date: "13/06/2025", tag: "Tin Đảng ủy",
+      excerpt: "Ngày 27/06/2025, Đại hội đại biểu Đảng bộ Công ty TNHH MTV Thuốc lá Thanh Hoá lần thứ XIX, nhiệm kỳ 2025–2030, đã diễn ra trọng thể, đánh dấu...",
+      url: "dai-hoi-dai-bieu-dang-bo-cong-ty-tnhh-mtv-thuoc-la-thanh-hoa-lan-thu-xix--dau-moc-quan-trong-dua-doanh-nghiep-phat-trien-ben-vung-trong-ky-nguyen-so-n176.html" },
+    { title: "Sôi nổi Hội thao chào mừng 58 năm ngày thành lập Công ty (12/06/1966 – 12/06/2024)",
+      date: "04/10/2024", tag: "Thể thao",
+      excerpt: "Ngày 10/06/2024, Công ty Thuốc Lá Thanh Hóa đã long trọng tổ chức lễ kỷ niệm 58 năm thành lập với nhiều hoạt động thể thao sôi nổi và buổi lễ...",
+      url: "soi-noi--hoi-thao-chao-mung-58-nam-ngay--thanh-lap-cong-ty--12061966--12062024--n172.html" },
+    { title: "Sôi nổi Hội thi khéo tay hay làm chào mừng Ngày Phụ nữ Việt Nam 20/10",
+      date: "27/10/2022", tag: "Công đoàn",
+      excerpt: "Thiết thực chào mừng kỷ niệm 92 năm Ngày thành lập Hội Liên hiệp Phụ nữ Việt Nam và ngày Phụ nữ Việt Nam 20/10, ngày 18/10/2022, Công đoàn Công ty...",
+      url: "soi-noi-hoi-thi-kheo-tay-hay-lam-chao-mung-ngay-phu-nu-viet-nam-2010-n163.html" },
+    { title: "Hội thao, hội diễn văn nghệ chào mừng 56 năm ngày thành lập Công ty",
+      date: "01/07/2022", tag: "Văn nghệ",
+      excerpt: "Ngày 08/6 tại Công ty Thuốc lá Thanh Hóa đã khai mạc hội thao, hội diễn văn nghệ quần chúng chào mừng 56 năm ngày thành lập Công ty 12/06/1966-...",
+      url: "hoi-thao-hoi-dien-van-nghe-chao-mung-chao-mung-56-nam-ngay-thanh-lap-cong-ty-n162.html" },
+    { title: "Ủng hộ quỹ phòng, chống dịch bệnh Covid-19",
+      date: "19/06/2021", tag: "Trách nhiệm xã hội",
+      excerpt: "Ngày 16/06/2021 Chủ tịch Công ty ông Lê Xuân Khải và Chủ tịch Công đoàn bà Đoàn Thị Mai thay mặt Công ty đã trao số tiền 200 triệu đồng cho Ủy...",
+      url: "ung-ho-quy-phong-chong-dich-benh-covid-19-n151.html" }
+  ];
+
+  const esc = s => s.replace(/[&<>"]/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;" }[c]));
+  const year = n => n.date.slice(-4);
+  const link = n => BASE + n.url;
+  const thumb = n => `<div class="thumb"><span class="big">${year(n)}</span><span class="stamp">${esc(n.tag)}</span></div>`;
+  const meta = n => `<div class="meta">📅 ${n.date}</div>`;
+
+  // Featured = newest article
+  const [top, ...rest] = NEWS;
+  document.getElementById("featured").innerHTML = `
+    <a href="${link(top)}" target="_blank" rel="noopener">${thumb(top)}</a>
+    <div class="body">
+      <span class="tag">Tin nổi bật</span>
+      <h2><a href="${link(top)}" target="_blank" rel="noopener">${esc(top.title)}</a></h2>
+      ${meta(top)}
+      <p class="excerpt" style="margin-top:10px">${esc(top.excerpt)}</p>
+      <a class="more" href="${link(top)}" target="_blank" rel="noopener">Xem chi tiết →</a>
+    </div>`;
+
+  // Year filter + search
+  let activeYear = "all", query = "";
+  const years = ["all", ...new Set(rest.map(year))];
+  const chips = document.getElementById("chips");
+  chips.innerHTML = years.map(y =>
+    `<button class="chip" data-y="${y}" aria-pressed="${y === "all"}">${y === "all" ? "Tất cả" : y}</button>`).join("");
+  chips.addEventListener("click", e => {
+    const b = e.target.closest(".chip"); if (!b) return;
+    activeYear = b.dataset.y;
+    chips.querySelectorAll(".chip").forEach(c => c.setAttribute("aria-pressed", c === b));
+    render();
+  });
+
+  const norm = s => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/đ/g, "d");
+  function render() {
+    const list = (query ? NEWS : rest).filter(n =>
+      (activeYear === "all" || year(n) === activeYear) &&
+      (!query || norm(n.title + " " + n.excerpt).includes(norm(query))));
+    document.getElementById("grid").innerHTML = list.length ? list.map(n => `
+      <article class="card">
+        <a href="${link(n)}" target="_blank" rel="noopener">${thumb(n)}</a>
+        <div class="body">
+          ${meta(n)}
+          <h4><a href="${link(n)}" target="_blank" rel="noopener">${esc(n.title)}</a></h4>
+          <p class="excerpt">${esc(n.excerpt)}</p>
+          <a class="more" href="${link(n)}" target="_blank" rel="noopener">Đọc tiếp →</a>
+        </div>
+      </article>`).join("") : `<div class="empty">Không tìm thấy bài viết phù hợp.</div>`;
+  }
+  render();
+
+  document.getElementById("searchForm").addEventListener("submit", e => {
+    e.preventDefault();
+    query = document.getElementById("q").value.trim();
+    render();
+    document.getElementById("grid").scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+  document.getElementById("q").addEventListener("input", e => { if (!e.target.value) { query = ""; render(); } });
+
+  document.getElementById("recent").innerHTML = NEWS.slice(0, 4).map(n =>
+    `<li><div><a href="${link(n)}" target="_blank" rel="noopener">${esc(n.title)}</a><small>${n.date}</small></div></li>`).join("");
+
+  document.getElementById("subForm").addEventListener("submit", e => {
+    e.preventDefault();
+    e.target.reset();
+    document.getElementById("subMsg").style.display = "block";
+  });
+
+  const burger = document.querySelector(".burger"), nav = document.querySelector("nav.menu");
+  burger.addEventListener("click", () => {
+    const open = nav.classList.toggle("open");
+    burger.setAttribute("aria-expanded", open);
+  });
+</script>
+</body>
+</html>
